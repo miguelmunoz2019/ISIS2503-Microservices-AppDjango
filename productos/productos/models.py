@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Producto(models.Model):
-    id = models.FloatField(null=True, blank=True, default=None)
+    id = models.FloatField(primary_key=True, default=None)
     nombre = models.CharField(max_length=50)
     marca = models.CharField(max_length=50)
     precio = models.FloatField(null=True, blank=True, default=None)
