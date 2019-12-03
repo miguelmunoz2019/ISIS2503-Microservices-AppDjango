@@ -4,7 +4,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 from . import views
 
+
 urlpatterns = [
-    url(r'^measurements/', views.MeasurementList),
-    url(r'^measurementcreate/$', csrf_exempt(views.MeasurementCreate), name='measurementCreate'),
+    path(r'^productos/', views.ProductoList),
+    path(r'^productocreate/$', csrf_exempt(views.ProductoCreate), name='productoCreate'),
 ]

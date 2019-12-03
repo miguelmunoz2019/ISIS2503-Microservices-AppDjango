@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'measurements',
+    'clientes',
 ]
 
 MIDDLEWARE = [
@@ -133,4 +133,4 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-PATH_VAR = "http://0.0.0.0:8000/variables"
+PATH_VAR = "http://0.0.0.0:8000/productos"
