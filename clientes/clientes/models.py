@@ -1,5 +1,4 @@
 from django.db import models
-from django.forms import IntegerField
 
 
 class Cliente(models.Model):
@@ -7,7 +6,7 @@ class Cliente(models.Model):
     id = models.CharField(max_length=50)
     direccion = models.CharField(max_length=50)
     correo = models.CharField(max_length=50)
-    carrito = models.ManyToManyField(IntegerField())
+    carrito = models.IntegerField(null=False, default=None)
 
     def __str__(self):
         return '%s %s' % (self.value, self.unit)
