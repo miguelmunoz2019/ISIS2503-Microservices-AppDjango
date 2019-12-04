@@ -13,7 +13,7 @@ import json
 def check_producto(data):
     r = requests.get(settings.PATH_VAR, headers={"Accept": "application/json"})
     productos = r.json()
-    cadena = data["carrito"]
+    cadena = data["carrito"].split(',')
     for producto in productos:
         for numero in cadena:
             if float(numero) == producto["id"]:
