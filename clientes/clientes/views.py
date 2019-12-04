@@ -35,7 +35,7 @@ def ClienteCreate(request):
         cliente.nombre = data_json['nombre']
         cliente.direccion = data_json['direccion']
         cliente.correo = data_json['correo']
-
+        cliente.carrito = data_json['carrito']
         cliente.save()
         return HttpResponse("successfully created cliente")
 
