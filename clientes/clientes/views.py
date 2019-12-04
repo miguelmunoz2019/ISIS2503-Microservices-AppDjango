@@ -13,15 +13,17 @@ import json
 def check_producto(data):
     r = requests.get(settings.PATH_VAR, headers={"Accept": "application/json"})
     productos = r.json()
+    cadena= data["nombre"].split('w')
     for producto in productos:
-        if data["nombre"] == producto["id"]:
-            return True
+        for numero in cadena:
+            if numero == producto["id"]:
+                return True
     return False
 
 
 def cliente_list(request):
     queryset = Cliente.objects.all()
-    context = list(queryset.values('nombre', 'id', 'direccion', 'correo'))
+    context = list(queryset.values('nombre', 'id', 'direccion', 'correo', 'carrito'))
     return JsonResponse(context, safe=False)
 
 
