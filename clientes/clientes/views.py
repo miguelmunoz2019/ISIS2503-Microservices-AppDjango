@@ -32,7 +32,7 @@ def ClienteCreate(request):
         data = request.body.decode('utf-8')
         data_json = json.loads(data)
         cliente = Cliente()
-        if cliente.carrito == 'empty':
+        if data_json['carrito'] == "empty":
             cliente.id = data_json['id']
             cliente.nombre = data_json['nombre']
             cliente.direccion = data_json['direccion']
