@@ -7,5 +7,5 @@ from . import views
 
 urlpatterns = [
     path(r'^productos/', views.ProductoList),
-    path(r'^productocreate/$', csrf_exempt(views.ProductoCreate), name='productoCreate'),
+    path('productocreate/', csrf_exempt(views.ProductoCreate), name='productoCreate'),
 ]
