@@ -5,6 +5,6 @@ from django.views.decorators.csrf import csrf_exempt
 from . import views
 
 urlpatterns = [
-    url(r'^inventarios/', views.InventarioList),
-    url(r'^inventariocreate/$', csrf_exempt(views.InventarioCreate), name='inventarioCreate'),
+    url('inventarios/', views.InventarioList),
+    url('inventariocreate/', csrf_exempt(views.InventarioCreate), name='inventarioCreate'),
 ]
