@@ -32,6 +32,7 @@ def ClienteCreate(request):
 
         cliente = Cliente()
         producto = ProductoCarrito()
+        producto.id=0
         cliente.id = data_json['id']
         cliente.nombre = data_json['nombre']
         cliente.direccion = data_json['direccion']
