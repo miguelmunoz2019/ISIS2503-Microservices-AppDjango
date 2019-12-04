@@ -32,7 +32,8 @@ def ClienteCreate(request):
 
         cliente = Cliente()
         producto = ProductoCarrito()
-        producto.id=0
+        producto.id = 0
+        producto.nombre = "nulo"
         cliente.id = data_json['id']
         cliente.nombre = data_json['nombre']
         cliente.direccion = data_json['direccion']
@@ -51,6 +52,7 @@ def AddProductoCarro(request):
             cliente = data_json['id']
             producto = ProductoCarrito()
             producto.id = data_json['nombre']
+            producto.nombre = data_json['nombre2']
             updateSQL(cliente, producto)
         return HttpResponse("successfully created cliente")
 
