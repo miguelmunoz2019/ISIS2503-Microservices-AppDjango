@@ -8,5 +8,6 @@ from . import views
 urlpatterns = [
     path('clientes/', views.cliente_list),
     path('clientecreate/', csrf_exempt(views.ClienteCreate), name='clienteCreate'),
+    path('clienteadd/', csrf_exempt(views.AddProductoCarro), name='AddProductoCarro'),
 ]
 
