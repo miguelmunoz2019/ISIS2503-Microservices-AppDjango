@@ -54,7 +54,7 @@ def AddProductoCarro(request):
 
 
 def updateSQL(id,producto):
-    for p in Cliente.objects.raw('SELECT * FROM '+ 'measurements_db'+ 'WHERE id ='+ str(id)):
+    for p in Cliente.objects.raw('SELECT * FROM '+ 'CLIENTES '+ 'WHERE id ='+ str(id)):
         p.carrito.add(producto)
         p.save()
 
