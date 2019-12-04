@@ -40,7 +40,7 @@ def ClienteCreate(request):
             cliente.carrito = data_json['carrito']
             cliente.save()
             return HttpResponse("successfully added producto to carrito")
-        elif cliente.carrito == "":
+        elif cliente.carrito == "empty":
             cliente.id = data_json['id']
             cliente.nombre = data_json['nombre']
             cliente.direccion = data_json['direccion']
