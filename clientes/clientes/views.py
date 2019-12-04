@@ -1,4 +1,4 @@
-from .models import Cliente, ProductoCarrito
+from .models import Cliente
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponse
