@@ -1,4 +1,4 @@
-from .models import Cliente
+from .models import Cliente,ProductoCarrito
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponse
@@ -40,25 +40,22 @@ def ClienteCreate(request):
         return HttpResponse("successfully created cliente")
 
 
-
 def AddProductoCarro(request):
     if request.method == 'PUT':
         data = request.body.decode('utf-8')
         data_json = json.loads(data)
 
-        cliente = Cliente()
-        cliente.id = data_json['id']
-        cliente.nombre = data_json['nombre']
-        cliente.direccion = data_json['direccion']
-        cliente.correo = data_json['correo']
-
-        cliente.save()
+        if check_producto(data_json):
+            cliente = data_json['id']
+            producto= ProductoCarrito()
+            producto.id = data_json['nombre']
+            updateSQL(cliente,producto)
         return HttpResponse("successfully created cliente")
 
-def busquedaSQL(id):
-    with connection.cursor() as cursor:
-        cursor.execute("SELECT *  WHERE id = %d", [id])
-        row = cursor.fetchone()
 
-    return row
+def updateSQL(id,producto):
+    for p in Cliente.objects.raw('SELECT * WHERE id ='+id):
+        p.carrito.add(producto)
+        p.save()
+
 
