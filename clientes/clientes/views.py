@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.urls import reverse
 from django.conf import settings
+from django.db import connection
 import requests
 import json
 
@@ -37,3 +38,27 @@ def ClienteCreate(request):
 
         cliente.save()
         return HttpResponse("successfully created cliente")
+
+
+
+def AddProductoCarro(request):
+    if request.method == 'PUT':
+        data = request.body.decode('utf-8')
+        data_json = json.loads(data)
+
+        cliente = Cliente()
+        cliente.id = data_json['id']
+        cliente.nombre = data_json['nombre']
+        cliente.direccion = data_json['direccion']
+        cliente.correo = data_json['correo']
+
+        cliente.save()
+        return HttpResponse("successfully created cliente")
+
+def busquedaSQL(id):
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT *  WHERE id = %d", [id])
+        row = cursor.fetchone()
+
+    return row
+
