@@ -32,15 +32,7 @@ def ClienteCreate(request):
         data = request.body.decode('utf-8')
         data_json = json.loads(data)
         cliente = Cliente()
-        if cliente.carrito == "":
-            cliente.id = data_json['id']
-            cliente.nombre = data_json['nombre']
-            cliente.direccion = data_json['direccion']
-            cliente.correo = data_json['correo']
-            cliente.carrito = data_json['carrito']
-            cliente.save()
-            return HttpResponse("successfully created cliente")
-        elif check_producto(data_json):
+        if check_producto(data_json):
             cliente.id = data_json['id']
             cliente.nombre = data_json['nombre']
             cliente.direccion = data_json['direccion']
