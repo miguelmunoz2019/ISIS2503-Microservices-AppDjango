@@ -14,7 +14,7 @@ def check_producto(data):
     r = requests.get(settings.PATH_VAR, headers={"Accept":"application/json"})
     productos = r.json()
     for producto in productos:
-        if data["producto"] == producto["id"]:
+        if data["nombre"] == producto["id"]:
             return True
     return False
 
