@@ -32,8 +32,7 @@ def ClienteCreate(request):
         data = request.body.decode('utf-8')
         data_json = json.loads(data)
         cliente = Cliente()
-        print(cliente.carrito is "empty")
-        if cliente.carrito is "empty":
+        if cliente.carrito == 'empty':
             cliente.id = data_json['id']
             cliente.nombre = data_json['nombre']
             cliente.direccion = data_json['direccion']
