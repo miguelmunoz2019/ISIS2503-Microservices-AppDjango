@@ -3,7 +3,7 @@ from django.db import models
 
 class ProductoCarrito(models.Model):
     id = models.IntegerField(primary_key=True)
-
+    nombre = models.CharField(max_length=50)
 
 class Cliente(models.Model):
     nombre = models.CharField(max_length=50)
