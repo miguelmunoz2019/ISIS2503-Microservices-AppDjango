@@ -35,5 +35,5 @@ def ClienteCreate(request):
         cliente.direccion = data_json['direccion']
         cliente.correo = data_json['correo']
 
-        producto.save()
+        cliente.save()
         return HttpResponse("successfully created cliente")
