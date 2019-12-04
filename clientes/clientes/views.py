@@ -47,9 +47,9 @@ def AddProductoCarro(request):
 
         if check_producto(data_json):
             cliente = data_json['id']
-            producto= ProductoCarrito()
+            producto = ProductoCarrito()
             producto.id = data_json['nombre']
-            updateSQL(cliente,producto)
+            updateSQL(cliente, producto)
         return HttpResponse("successfully created cliente")
 
 
