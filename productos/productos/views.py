@@ -18,6 +18,7 @@ def ProductoCreate(request):
         data = request.body.decode('utf-8')
         data_json = json.loads(data)
         producto = Producto()
+        producto.id = data_json["id"]
         producto.nombre = data_json["nombre"]
         producto.marca = data_json["marca"]
         producto.precio = data_json["precio"]
