@@ -14,10 +14,11 @@ def check_producto(data):
     r = requests.get(settings.PATH_VAR, headers={"Accept": "application/json"})
     productos = r.json()
     cadena = data["carrito"].split(',')
-    for producto in productos:
-        for numero in cadena:
-            if float(numero) == producto["id"]:
-                return True
+    if cadena != "empty":
+        for producto in productos:
+            for numero in cadena:
+                if float(numero) == producto["id"]:
+                    return True
     return False
 
 
@@ -32,7 +33,7 @@ def ClienteCreate(request):
         data = request.body.decode('utf-8')
         data_json = json.loads(data)
         cliente = Cliente()
-        if cliente.carrito == 'empty':
+        if cliente.carrito == "empty":
             cliente.id = data_json['id']
             cliente.nombre = data_json['nombre']
             cliente.direccion = data_json['direccion']
