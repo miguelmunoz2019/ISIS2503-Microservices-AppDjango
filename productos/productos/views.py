@@ -15,4 +15,14 @@ def ProductoList(request):
 
 def ProductoCreate(request):
     if request.method == 'POST':
+        data = request.body.decode('utf-8')
+        data_json = json.loads(data)
+        producto = Producto()
+        producto.nombre = data_json["nombre"]
+        producto.marca = data_json["marca"]
+        producto.precio = data_json["precio"]
+        producto.talla = data_json["talla"]
+        producto.cantidad = data_json["cantidad"]
+        producto.descripcion = data_json["descripcion"]
+        producto.save()
         return HttpResponse("successfully created producto")
